@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Testing js speed</title>
+
+</head>
+
+<body>
+  <script>
+  	  let bubbleSort = (inputArr) => {
+	    let len = inputArr.length;
+	    let swapped;
+	    do {
+	        swapped = false;
+	        for (let i = 0; i < len; i++) {
+	            if (inputArr[i] > inputArr[i + 1]) {
+	                let tmp = inputArr[i];
+	                inputArr[i] = inputArr[i + 1];
+	                inputArr[i + 1] = tmp;
+	                swapped = true;
+	            }
+	        }
+	    } while (swapped);
+	    return inputArr;
+	};
+	let doMath = (len) => {
+	    let v = 0;
+        for (let i = 0; i < len; i++) {
+            v += 3.1415;
+        }
+	};
+  	function sorts(){
+  		for(var k = 0; k<14; k++){
+  			var k10 = Math.pow(10, k);
+  			var prt =(k+1);
+  			for(var i = 0; i <20;i++){ 
+  				//var arr = Array.from({length: 10*k10}, () => Math.floor(Math.random() * 100000));
+		  		var t0 = performance.now();
+				doMath(k10); //bubbleSort(arr) for å teste array
+				var t1 = performance.now();
+				prt += ";" + Math.round((t1 - t0)); 	
+	  		}
+	  		console.log(prt);
+  		}
+  	}
+  </script>
+  	<a onclick="sorts()">click here</a>
+</body>
+</html>
